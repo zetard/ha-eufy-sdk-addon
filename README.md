@@ -17,6 +17,24 @@ URL and uses Supervisor discovery to auto-fill it on the add-on path.
 > Runs on **amd64** and **aarch64** (Raspberry Pi 3/4/5 64-bit, x86). armv7 (32-bit) is not supported
 > — the bridge's `node:24-alpine` base has no armv7 build.
 
+## Local recording-history test add-on (this fork only)
+
+This fork adds a third, **experimental** entry: **eufy-sdk bridge (recordings test)**.
+It uses an on-device Docker build from the official bridge runtime plus two source
+modules pinned to our CI-verified
+[recording-index change](https://github.com/zetard/ha-eufy-sdk-bridge/pull/1).
+It does **not** publish or require a forked Docker registry image.
+
+Install this fork as a *separate* Home Assistant add-on repository:
+`https://github.com/zetard/ha-eufy-sdk-addon`. Enable **Advanced Mode**
+in your HA profile to see the experimental entry.
+
+**Do not run two Eufy bridge add-ons concurrently.** This test channel may
+require a new Eufy login; copy the working configuration privately and keep
+the old add-on intact as a rollback route. See
+[recordings test DOCS](./eufy_sdk_bridge_recordings/DOCS.md)
+before switching.
+
 ## Install
 
 **One click** — add this repository to your Home Assistant:
