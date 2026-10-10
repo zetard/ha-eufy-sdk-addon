@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: eufy-sdk add-ons
-url: "https://github.com/mega-yfue/ha-eufy-sdk-addon"
-maintainer: mega-yfue
+name: zetard Eufy SDK experimental add-ons
+url: "https://github.com/zetard/ha-eufy-sdk-addon"
+maintainer: zetard
