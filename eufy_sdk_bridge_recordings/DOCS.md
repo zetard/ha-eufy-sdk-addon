@@ -39,4 +39,14 @@ but the separately mapped TCP control port does not. Do not expose it to the int
 Video recordings and the recording index (including cipher references) are sensitive household data.
 The new index is stored privately under the test add-on's `/data` volume.
 
-See [bridge API notes](https://github.com/zetard/ha-eufy-sdk-bridge/blob/feature/event-recording-history/docs/recording-history.md).
+See [bridge API notes](https://github.com/zetard/ha-eufy-sdk-bridge/blob/main/docs/recording-history.md).
+
+## Keeping this add-on updated
+
+The recording-history change is now merged into the bridge fork's `main` branch.
+This add-on deliberately **remains pinned** to tested commit `f72e40c` and the
+upstream `0.4.0` bridge image. Merely merging bridge repository changes does not
+upgrade Home Assistant. For future upstream releases, check that both custom
+modules (`clip.mjs`, `http-routes.mjs`) still work against the new base, run the
+bridge's focused tests, and test camera images, event-specific downloads and Gio
+in Home Assistant before changing the add-on's Dockerfile or version.
