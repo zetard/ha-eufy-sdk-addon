@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.7.0-dev.1
+
+- Rebuild from the current bridge `:dev`: **bridge 0.6.0 on the newest eufy-sdk beta (`0.5.0-beta.x`)**,
+  which brings everything in the stable add-on 0.7.0 (the camera power tier the integration uses to keep
+  battery cameras away from HA's stream worker, and the "Last event" cover log line). Pair it with
+  **integration 0.6.0**.
+
+## 0.6.0-dev.3
+
+- Rebuild from the current bridge `:dev`, picking up:
+  - **No more auth tokens in logs or error messages.** eufy echoes the account's token in some errors (e.g. a
+    refused RTC sign); the bridge now redacts it from its log, HTTP and WebSocket output.
+  - **A WebRTC check at startup.** The log says whether `node-datachannel` (needed by a HomeBase S1 Pro /
+    T9000) loads on this platform, and which prebuilt build it uses (e.g. `linux-arm64-musl`).
+
+## 0.6.0-dev.2
+
+- Rebuild from the current bridge `:dev`, which now ships **`node-datachannel`**, the native WebRTC library a
+  **HomeBase S1 Pro (T9000)** needs. Before this, every T9000 command and live view failed with "needs the
+  optional peer dependency 'node-datachannel'" (#46). Prebuilt for both amd64 and arm64 (Raspberry Pi).
+  - Note: some accounts still hit an **RTC sign refused (HTTP 401)** before the library is reached; that's an
+    SDK fix in progress (mega-yfue/eufy-sdk#422).
+- Stream failures now say **why** they failed in the log (e.g. the RTC sign refusal), instead of always
+  "P2P unreachable".
+
+## 0.6.0-dev.1
+
+- Rebuild from the current bridge `:dev`: **bridge 0.5.0 on the newest eufy-sdk beta (`0.5.0-beta.x`)**,
+  which brings everything in the stable add-on 0.6.0 (stable bridge ID so the same bridge isn't configured
+  twice, HomeBase 2 "Last event" covers, the Refresh Last Event timeout fix, newest image wins, mains
+  cameras keep streaming), plus the SDK beta line beyond 0.4.0. Pair it with **integration 0.5.1**.
+
 ## 0.5.0-dev.1
 
 - Rebuild from the current bridge `:dev`. The previous dev image ran bridge 0.3.0 on eufy-sdk

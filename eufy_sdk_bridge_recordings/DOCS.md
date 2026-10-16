@@ -1,8 +1,8 @@
 # Experimental Eufy recording-history add-on
 
 This is an isolated **local-build** test add-on. It does not alter the installed stable add-on or its image.
-Instead of publishing a custom GHCR image, Supervisor builds the official bridge `0.4.0` image
-with two modified modules from commit `f72e40c137176db482567cdd7a1ddb6939ea4d0f`
+Instead of publishing a custom GHCR image, Supervisor builds the official bridge `0.6.0` image
+with two modified modules from commit `71866d03fabe11e5a80bc1654cb02bb696e49794`
 of `zetard/ha-eufy-sdk-bridge`. Requires outbound access to GHCR and raw.githubusercontent.com.
 
 ## Before starting
@@ -44,8 +44,8 @@ See [bridge API notes](https://github.com/zetard/ha-eufy-sdk-bridge/blob/main/do
 ## Keeping this add-on updated
 
 The recording-history change is now merged into the bridge fork's `main` branch.
-This add-on deliberately **remains pinned** to tested commit `f72e40c` and the
-upstream `0.4.0` bridge image. Merely merging bridge repository changes does not
+This add-on deliberately **remains pinned** to tested commit `71866d0` (the bridge fork's
+upstream-0.6.0 sync, 173 tests passing) and the upstream `0.6.0` bridge image. Merely merging bridge repository changes does not
 upgrade Home Assistant. For future upstream releases, check that both custom
 modules (`clip.mjs`, `http-routes.mjs`) still work against the new base, run the
 bridge's focused tests, and test camera images, event-specific downloads and Gio

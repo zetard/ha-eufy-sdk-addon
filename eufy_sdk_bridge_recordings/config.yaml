@@ -3,7 +3,7 @@
 # Isolated local-build experimental add-on. Official stable and dev add-ons remain unchanged.
 # Stop the original bridge before starting this one; Eufy only supports one session per account.
 name: eufy-sdk bridge (recordings test)
-version: "0.5.0-recordings.1"
+version: "0.6.0-recordings.1"
 slug: eufy_sdk_bridge_recordings
 stage: experimental
 description: Experimental locally built bridge for indexed HomeBase recordings. Run one bridge at a time.

@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.7.0
+
+- Built on **bridge 0.6.0** (still eufy-sdk 0.4.0). For the add-on, this means:
+  - **HomeBase S1 Pro (T9000) can start its WebRTC connection.** The image now ships `node-datachannel`,
+    prebuilt for amd64 and arm64 (Raspberry Pi). Some accounts still hit an RTC sign refusal (HTTP 401)
+    first; that's an SDK fix in progress.
+  - **No more auth tokens in logs or error messages**: a token eufy echoes back is redacted.
+  - **Battery cameras stop draining from Home Assistant's stream worker** together with **integration
+    0.6.0**: the bridge now tells the integration which cameras are on battery, so mains cameras keep HLS.
+  - **Clearer logs**: a failed stream says why, startup reports whether the WebRTC library loads, and a
+    "Last event" cover in a format the SDK can't decode yet is logged instead of looking like no reply.
+- No new options. Pair it with **integration 0.6.0**.
+
+## 0.6.0
+
+- Built on **bridge 0.5.0** (still eufy-sdk 0.4.0). For the add-on, this means:
+  - **No more duplicate bridges in Home Assistant.** The bridge now has a stable ID, so with integration
+    0.5.1 a bridge you already added (e.g. by IP) is no longer offered again when it's discovered at
+    `172.30.32.1`. If you already have two eufy-sdk entries for this add-on, delete the newer one.
+  - **"Last event" images on a HomeBase 2** come from the HomeBase again (a new query the HomeBase 2
+    answers). Covers stored in the newer `v2_` format also need a later SDK release.
+  - **"Refresh Last Event"** no longer times out; it answers within 10 s and finishes in the background.
+  - **The newest "Last event" image wins**: an older push thumbnail no longer replaces a newer HomeBase
+    cover on local-storage accounts.
+  - **Mains-powered cameras keep streaming** to a continuous viewer (an NVR, say) instead of being
+    idle-suspended after 5 minutes. The idle auto-off now applies to battery cameras only.
+- No new options. Pair it with **integration 0.5.1**.
+
 ## 0.5.0
 
 - Built on **bridge 0.4.0**, which uses **eufy-sdk 0.4.0**. For the add-on, this means:
