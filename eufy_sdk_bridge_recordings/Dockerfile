@@ -1,8 +1,8 @@
 # Local-build test channel: official bridge runtime plus two pinned feature modules.
-ARG BUILD_FROM=ghcr.io/mega-yfue/ha-eufy-sdk-bridge:0.4.0
+ARG BUILD_FROM=ghcr.io/mega-yfue/ha-eufy-sdk-bridge:0.6.0
 FROM ${BUILD_FROM}
 RUN apk add --no-cache curl jq
-ARG BRIDGE_COMMIT=f72e40c137176db482567cdd7a1ddb6939ea4d0f
+ARG BRIDGE_COMMIT=71866d03fabe11e5a80bc1654cb02bb696e49794
 RUN set -eu; \
     curl -fsSL --retry 3 "https://raw.githubusercontent.com/zetard/ha-eufy-sdk-bridge/${BRIDGE_COMMIT}/src/clip.mjs" -o /app/src/clip.mjs; \
     curl -fsSL --retry 3 "https://raw.githubusercontent.com/zetard/ha-eufy-sdk-bridge/${BRIDGE_COMMIT}/src/http-routes.mjs" -o /app/src/http-routes.mjs; \
